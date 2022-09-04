@@ -9,7 +9,7 @@ anyway there will be more options in the future, like an app that can wake u up 
 
 Open your powershell and type !IMPORTANT -> you need to rename your folder to sNotify instead of s&Notify. because windows is a crybaby
 	
-    cd S&Notify
+    cd sNotify
     pip install -r requirements.txt
 
 ## How to run the script
