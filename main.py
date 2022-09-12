@@ -1,4 +1,5 @@
-from funcs import *
+from server.funcs import *
+from server.giveawayInfo import *
 import datetime
 import time
 
@@ -9,13 +10,15 @@ def launch_client(): #NOTE maybe add an option here to launch the webserver late
         check_giveaway()
 
 def check_giveaway():
-    web_content = get_web_content()
-    keys = get_keys(web_content)
+    giveaway_obj = GiveawayInfo()
+    webcontent = giveaway_obj.get_web_content()
+    keys = giveaway_obj.get_keys(webcontent)
 
-    if (keys):
+    if (keys and '0' not in keys):
         print("####################### " + str(datetime.datetime.now()) + " " + "a giveaway is active" + " #######################")
         start_windows_notify(keys)
-    if (not keys):
+    else:
         print(str(datetime.datetime.now()) + " " + "no giveaway running - still waiting...")
+        
 
 launch_client()
