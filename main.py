@@ -1,20 +1,21 @@
 from funcs import *
+import datetime
 import time
 
-def launch():
-    print("RUNNING...")
-    option = settings()
+def launch_client(): #NOTE maybe add an option here to launch the webserver later instead of force launching it
+    print("Running Client") 
     while True:
-        time.sleep(20)
-        main(option)
+        time.sleep(10)
+        check_giveaway()
 
-def main(option):
+def check_giveaway():
     web_content = get_web_content()
-    keys = check_if_keys_available(web_content)
+    keys = get_keys(web_content)
 
     if (keys):
-        start_notify(keys, option)
+        print("####################### " + str(datetime.datetime.now()) + " " + "a giveaway is active" + " #######################")
+        start_windows_notify(keys)
     if (not keys):
-        print("no giveaway running - still waiting...")
+        print(str(datetime.datetime.now()) + " " + "no giveaway running - still waiting...")
 
-launch()
+launch_client()
