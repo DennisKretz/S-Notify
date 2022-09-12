@@ -12,7 +12,7 @@
     <div class="greeting"><h1>Welcome to sNotify</h1></div>
     <div class="giveaway-info">
         <div class="viewers-div">Viewers
-            <p class="viewers">321</p>
+            <p class="viewers"></p>
         </div>
         <div class="keys-div">Keys
             <p class="keys"></p>
@@ -33,7 +33,11 @@
 
     var updateWebContent = function() {
         $.getJSON('/get_keys', function(data){
-            return $('.keys').text(data.keys)
+            return $('.keys').text(data.keys);
+        });
+
+        $.getJSON('/get_viewers', function(data){
+            return $('.viewers').text(data.viewers);
         });
     }
 
