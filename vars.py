@@ -1,1 +1,0 @@
-website_url = 'https://asset.party/get/developer/preview'
