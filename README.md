@@ -7,10 +7,10 @@ anyway there will be more options in the future, like an app that can wake u up 
 
 # How to install requirements
 
-Open your powershell and type
-
-    cd S&Notify
-    pip install -r requirements
+Open your powershell and type !IMPORTANT -> you need to rename your folder to sNotify instead of s&Notify. because windows is a crybaby
+	
+    cd sNotify
+    pip install -r requirements.txt
 
 ## How to run the script
 
