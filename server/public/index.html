@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>sNotify webserver</title>
+</head>
+<body>
+    <div class="greeting"><h1>Welcome to sNotify</h1></div>
+    <div class="giveaway-info">
+        <div class="viewers-div">Viewers
+            <p class="viewers"></p>
+        </div>
+        <div class="keys-div">Keys
+            <p class="keys"></p>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    /*function getKeys() { FUCKING JAVASCRIPT
+        jsonKeys = $.getJSON('/get_keys', function(data){
+            //console.log(data.keys);
+            return data.keys
+        });
+        
+    }
+    */
+
+    var updateWebContent = function() {
+        $.getJSON('/get_keys', function(data){
+            return $('.keys').text(data.keys);
+        });
+
+        $.getJSON('/get_viewers', function(data){
+            return $('.viewers').text(data.viewers);
+        });
+    }
+
+    updateWebContent();
+</script>
